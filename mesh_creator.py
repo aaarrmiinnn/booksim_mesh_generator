@@ -56,7 +56,7 @@ print (custom_connections_destinations)
 
 
 # In[15]:
-
+delayy = 3
 adj_matrix = mesh_creator(X_size,Y_size)
 node_count = adj_matrix.shape[0]
 
@@ -72,7 +72,7 @@ with open('%s.nwk' % name, 'wb') as f:
             print i-1
             temp = custom_connections_destinations[(custom_connections_sources.index(str(int(i)-1)))]
             #print ("found %i and %i"%i,temp)
-            f.write('router %s '%temp)
+            f.write('router %s %s '%(temp,delayy))
             
         for j in adjacent_router_list[0]:
                     f.write('router %i '%j)
